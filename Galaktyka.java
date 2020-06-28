@@ -1,11 +1,12 @@
 
 public class Galaktyka {
     public static void main(String[] args) {
-        if (!args[0].chars().allMatch(Character::isDigit)) {
-            System.out.println("klops");
-        } else {
-            int n = Integer.parseInt(args[0]);
-            String orientation = args[1];
+        String input = args[0];
+        String size = input.substring(0, input.length() - 1);
+        String orientation = Character.toString(input.charAt(input.length() - 1));
+        int n = 0;
+        try {
+            n = Integer.parseInt(size);
             int numberOfColumns = n + 2;
             int numberOfRows = n + 3;
             int row = 0, col = 0;
@@ -139,9 +140,13 @@ public class Galaktyka {
                         break;
                 }
             }
+        } catch (NumberFormatException e) {
+            System.out.println("klops");
         }
     }
 }
+
+
 
 
 
